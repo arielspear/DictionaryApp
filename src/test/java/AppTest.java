@@ -1,4 +1,5 @@
 import org.fluentlenium.adapter.FluentTest;
+import java.util.ArrayList;
 import org.junit.ClassRule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -39,5 +40,18 @@ public class AppTest extends FluentTest {
     submit(".btn");
     click("a", withText("Go Back"));
     assertThat(pageSource()).contains("sew a dress");
+  }
+
+  @Test
+  public void multipleTasksAreDisplayedTest() {
+    goTo("http://localhost:4567/");
+    fill("#description").with("Water the plants");
+    submit(".btn");
+    click("a", withText("Go Back"));
+    fill("#description").with("Do a dance, then nap.");
+    submit(".btn");
+    click("a", withText("Go Back"));
+    assertThat(pageSource()).contains("Water the plants");
+    assertThat(pageSource()).contains("Do a dance, then nap.");
   }
 }
