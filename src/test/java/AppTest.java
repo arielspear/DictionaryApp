@@ -22,36 +22,15 @@ public class AppTest extends FluentTest {
   @Test
   public void rootTest() {
       goTo("http://localhost:4567/");
-      assertThat(pageSource()).contains("Task list!");
+      assertThat(pageSource()).contains("Dictionary");
   }
 
   @Test
-  public void taskIsCreatedTest(){
+  public void wordIsCreatedTest(){
     goTo("http://localhost:4567/");
-    fill("#description").with("read a book");
+    fill("#word").with("Dance");
     submit(".btn");
-    assertThat(pageSource()).contains("Your task has been saved.");
+    assertThat(pageSource()).contains("Dance");
   }
 
-  @Test
-  public void taskIsDisplayedTest() {
-    goTo("http://localhost:4567/");
-    fill("#description").with("sew a dress");
-    submit(".btn");
-    click("a", withText("Go Back"));
-    assertThat(pageSource()).contains("sew a dress");
-  }
-
-  @Test
-  public void multipleTasksAreDisplayedTest() {
-    goTo("http://localhost:4567/");
-    fill("#description").with("Water the plants");
-    submit(".btn");
-    click("a", withText("Go Back"));
-    fill("#description").with("Do a dance, then nap.");
-    submit(".btn");
-    click("a", withText("Go Back"));
-    assertThat(pageSource()).contains("Water the plants");
-    assertThat(pageSource()).contains("Do a dance, then nap.");
-  }
 }
