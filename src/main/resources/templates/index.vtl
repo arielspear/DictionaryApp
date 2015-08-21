@@ -1,14 +1,14 @@
 <h1>Word list!</h1>
 <ul>
   #foreach ($word in $words)
-    <li>$task.getWord()</li>
+    <li>$word.getWord()</li>
   #end
 </ul>
 <hr/>
 
-<p>Add a new Task:</p>
+<p>Add a new Word:</p>
 
-<form action="/tasks" method="post">
+<form action="/words" method="post">
   <label for="word">Word</label>
   <input id="word" name="description" type="text">
 

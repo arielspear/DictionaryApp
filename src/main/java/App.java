@@ -11,25 +11,25 @@ public class App {
 
     get("/", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
-      model.put("tasks", request.session().attribute("tasks"));
+      model.put("words", request.session().attribute("words"));
 
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/tasks", (request, response) -> {
+    post("/words", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
-      ArrayList<Task> tasks = request.session().attribute("tasks");
+      ArrayList<Word> words = request.session().attribute("words");
 
-      if (tasks == null) {
-        tasks = new ArrayList<Task>();
-        request.session().attribute("tasks", tasks);
+      if (words == null) {
+        words = new ArrayList<Word>();
+        request.session().attribute("words", words);
       }
 
       String description = request.queryParams("description");
-      Task newTask = new Task(description);
+      Word newWord = new Word(description);
 
-      tasks.add(newTask);
+      words.add(newWord);
 
       model.put("template", "templates/success.vtl");
       return new ModelAndView(model, layout);
