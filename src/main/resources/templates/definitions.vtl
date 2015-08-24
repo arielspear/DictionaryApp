@@ -1,0 +1,9 @@
+<h1> All definitions</h1>
+
+<ul>
+#foreach ($definition in $definitions)
+  <a href="/definitions/$definitions.getId()">$definition.getDescription()</a>
+#end
+</ul>
+
+<a href="/tasks/new">Add a definition</a>

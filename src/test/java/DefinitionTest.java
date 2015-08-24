@@ -10,9 +10,17 @@ public class DefinitionTest {
   }
 
   @Test
-  public void word_getDefinition_true() {
+  public void word_getsDefinition_true() {
       Definition testDef = new Definition("a cute fluffy animal");
       assertEquals("a cute fluffy animal", testDef.getDef());
+  }
+
+  @Test
+  public void all_returnsAllDefinitions_true() {
+      Definition firstDef = new Definition("a container");
+      Definition secondDef = new Definition("to suddenly be shaken");
+      assertTrue(Definition.getDefinitions().contains(firstDef));
+      assertTrue(Definition.getDefinitions().contains(secondDef));
   }
 
 }

@@ -15,5 +15,12 @@ public class WordTest {
     assertEquals("Unicorn", myWord.getWord());
   }
 
-  //had get definition
+  @Test
+  public void addDefinition_addsDef() {
+      Word testWord = new Word("bunny");
+      Definition testDef = new Definition("a fluffy animal");
+      testWord.addDefinition(testDef);
+      assertTrue(testWord.getDefinitions().contains(testDef));
+  }
+
 }
