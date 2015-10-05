@@ -2,8 +2,6 @@ import java.util.ArrayList;
 
 public class Word {
   private String mWord;
-  private static ArrayList<Word> mWordArray = new ArrayList<Word>();
-  private ArrayList<Definition> mDefinitionsArray = new ArrayList<Definition>();
   private int mId;
 
   public Word (String word) {

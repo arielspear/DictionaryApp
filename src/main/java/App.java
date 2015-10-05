@@ -50,6 +50,8 @@ public class App {
 
         get("/words", (request, response) -> {
             HashMap<String, Object> model = new HashMap<String, Object>();
+            String word = request.queryParams('word');
+            word.save();
             model.put("words", Word.getAllWords());
             model.put("template", "templates/words.vtl");
             return new ModelAndView(model, layout);
